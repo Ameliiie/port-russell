@@ -6,6 +6,7 @@ const catwayRoutes = require("./routes/catways");
 const app = express();
 
 connectDB(); 
+app.use (express.json());
 
 app.use("/catways", catwayRoutes);
 

@@ -5,8 +5,21 @@ const router = express.Router();
 router.get ("/", async (req, res)=>{
     
     const catways = await Catway.find();
-    res.json("catways");
+    res.json(catways);
 
 })
+router.get("/:id", async (req, res) => {
+
+    const catway = await Catway.findById(req.params.id);
+
+    res.json(catway);
+
+});
+
+router.post ("/", async (req, res) => {
+    const catway = new Catway (req.body);
+    await catway.save() ;
+    res.json(catway);
+} );
 
 module.exports = router; 
