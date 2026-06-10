@@ -22,4 +22,16 @@ router.post ("/", async (req, res) => {
     res.json(catway);
 } );
 
+router.put("/:id", async (req, res) => {
+
+    const catway = await Catway.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+    );
+
+    res.json(catway);
+
+});
+
 module.exports = router; 
