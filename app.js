@@ -2,6 +2,7 @@ const express = require("express");
 const connectDB = require("./config/database");
 const catwayRoutes = require("./routes/catways");
 const reservationRoutes =require ("./routes/reservations")
+const userRoutes = require("./routes/users");
 
 
 const app = express();
@@ -13,6 +14,8 @@ app.use (express.json());
 app.use("/catways", catwayRoutes);
 
 app.use("/reservations", reservationRoutes);
+
+app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
     res.send("Port Russell API")
