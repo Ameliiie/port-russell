@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Réservations</title>
+</head>
+
+<body>
+
+    <h1>Liste des Réservations</h1>
+
+    <a href="/dashboard">Retour Dashboard</a>
+
+    <hr>
+
+    <ul>
+
+        <% reservations.forEach(reservation => { %>
+
+            <li>
+                <%= reservation.clientName %>
+            </li>
+
+        <% }) %>
+
+    </ul>
+
+</body>
+
+</html>

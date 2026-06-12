@@ -50,5 +50,15 @@ router.delete("/:id",async (req,res) => {
     res.json(reservation);
 });
 
+router.get("/view/list", async (req, res) => {
+
+    const reservations = await Reservation.find();
+
+    res.render("reservations/index", {
+        reservations
+    });
+
+});
+
 
 module.exports = router;
