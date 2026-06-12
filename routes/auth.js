@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
@@ -21,10 +22,17 @@ router.post("/login", async (req, res) => {
         });
     }
 
-    res.json({
-        message: "Connexion réussie"
-    });
+    const token = jwt.sign(
+        {
+            email: user.email
+        },
+        "monSecretJWT"
+    );
 
+    res.json({
+        message: "Connexion réussie",
+        token
+    });
 });
 
 module.exports = router;
