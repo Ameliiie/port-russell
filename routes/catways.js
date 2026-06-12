@@ -41,4 +41,14 @@ router.delete("/:id",async (req,res) => {
     res.json(catway);
 });
 
+router.get("/view/list", async (req, res) => {
+
+    const catways = await Catway.find();
+
+    res.render("catways/index", {
+        catways
+    });
+
+});
+
 module.exports = router; 

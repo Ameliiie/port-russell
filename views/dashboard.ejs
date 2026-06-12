@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Port Russell</title>
+</head>
+
+<body>
+
+    <h1>Tableau de bord Port Russell</h1>
+
+    <p>Utilisateur connecté : Amelie</p>
+
+    <p>Date : <%= new Date().toLocaleDateString("fr-FR") %>
+    </p>
+
+    <hr>
+
+    <h2>Navigation</h2>
+
+    <ul>
+        <li><a href="/catways/view/list">Gestion des Catways</a></li>
+        <li><a href="/reservations/view/list">Gestion des Réservations</a></li>
+        <li><a href="/users/view/list">Gestion des Utilisateurs</a></li>
+        <li><a href="/doc/api.md">Documentation API</a></li>
+        <li><a href="/">Déconnexion</a></li>
+    </ul>
+
+    <hr>
+
+    <h2>Réservations en cours</h2>
+
+    <ul>
+
+        <% reservations.forEach(reservation=> { %>
+
+            <li>
+                <%= reservation.clientName %>
+            </li>
+
+            <% }) %>
+
+    </ul>
+
+</body>
+
+</html>

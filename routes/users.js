@@ -52,4 +52,14 @@ router.delete("/:email", async (req, res) => {
 
 });
 
+router.get("/view/list", async (req, res) => {
+
+    const users = await User.find();
+
+    res.render("users/index", {
+        users
+    });
+
+});
+
 module.exports = router;
