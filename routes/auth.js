@@ -34,5 +34,12 @@ router.post("/login", async (req, res) => {
         token
     });
 });
+router.get("/logout", (req, res) => {
+
+    res.json({
+        message: "Déconnexion réussie"
+    });
+
+});
 
 module.exports = router;
