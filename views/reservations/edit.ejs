@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Réservation</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Modifier Réservation</h1>
+
+    <a href="/reservations/view/list"> Retour à la liste </a>
+
+    <hr>
+
+    <form action="/reservations/view/edit/<%= reservation._id %>" method="POST">
+
+        <p> Nom client :<input type="text" name="clientName" value="<%= reservation.clientName %>"required></p>
+
+        <p> Nom bateau :  <input type="text" name="boatName" value="<%= reservation.boatName %>" required></p>
+
+        <button type="submit"> Modifier</button>
+
+    </form>
+
+</body>
+
+</html>

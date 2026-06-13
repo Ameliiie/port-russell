@@ -16,6 +16,7 @@ app.set("views", "./views");
 
 app.use (express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 app.use("/catways", catwayRoutes);
 app.use("/reservations", reservationRoutes);
@@ -39,6 +40,12 @@ app.get("/dashboard", async (req, res) => {
 app.post("/login", (req, res) => {
 
     res.redirect("/dashboard");
+
+});
+
+app.get("/logout", (req, res) => {
+
+    res.redirect("/");
 
 });
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Créer Réservation</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Créer une Réservation</h1>
+
+    <a href="/reservations/view/list">
+        Retour à la liste
+    </a>
+
+    <hr>
+
+    <form action="/reservations/view/create" method="POST">
+
+        <p>
+            Numéro Catway :
+            <input type="number" name="catwayNumber" required>
+        </p>
+
+        <p>
+            Nom client :
+            <input type="text" name="clientName" required>
+        </p>
+
+        <p>
+            Nom bateau :
+            <input type="text" name="boatName" required>
+        </p>
+
+        <p>
+            Date début :
+            <input type="date" name="startDate" required>
+        </p>
+
+        <p>
+            Date fin :
+            <input type="date" name="endDate" required>
+        </p>
+
+        <button type="submit">
+            Créer
+        </button>
+
+    </form>
+
+</body>
+
+</html>

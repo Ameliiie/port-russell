@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Utilisateurs</title>
 </head>
 
@@ -11,18 +12,27 @@
     <h1>Liste des Utilisateurs</h1>
 
     <a href="/dashboard">Retour Dashboard</a>
+    <a href="/users/view/create">Ajouter un utilisateur </a>
 
     <hr>
 
     <ul>
 
-        <% users.forEach(user => { %>
+        <% users.forEach(user=> { %>
 
             <li>
-                <%= user.username %> - <%= user.email %>
+
+                <%= user.username %>
+                    -
+                    <%= user.email %>
+
+                        <a href="/users/view/details/<%= user.email %>">
+                            Voir
+                        </a>
+
             </li>
 
-        <% }) %>
+            <% }) %>
 
     </ul>
 

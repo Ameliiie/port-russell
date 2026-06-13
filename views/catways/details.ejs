@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Détail Catway</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<hr>
+
+
+<body>
+
+    <h1>Détail du Catway</h1>
+
+    <a href="/catways/view/list">
+        Retour à la liste
+    </a>
+
+    <hr>
+
+    <p>
+        <strong>Numéro :</strong>
+        <%= catway.catwayNumber %>
+    </p>
+
+    <p>
+        <strong>Type :</strong>
+        <%= catway.catwayType %>
+    </p>
+
+    <p>
+        <strong>État :</strong>
+        <%= catway.catwayState %>
+    </p>
+    <hr>
+
+    <a href="/catways/view/edit/<%= catway._id %>"> Modifier</a>
+    <br><br>
+
+    <form action="/catways/view/delete/<%= catway._id %>" method="POST">
+
+        <button type="submit"> Supprimer </button>
+
+    </form>
+</body>
+
+</html>

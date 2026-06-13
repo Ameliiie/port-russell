@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Dashboard - Port Russell</title>
 </head>
 
@@ -11,6 +12,7 @@
     <h1>Tableau de bord Port Russell</h1>
 
     <p>Utilisateur connecté : Amelie</p>
+    <p>Email : amelie@test.fr</p>
 
     <p>Date : <%= new Date().toLocaleDateString("fr-FR") %>
     </p>
@@ -24,24 +26,38 @@
         <li><a href="/reservations/view/list">Gestion des Réservations</a></li>
         <li><a href="/users/view/list">Gestion des Utilisateurs</a></li>
         <li><a href="/doc/api.md">Documentation API</a></li>
-        <li><a href="/">Déconnexion</a></li>
+        <li><a href="/logout">Déconnexion</a></li>
     </ul>
 
     <hr>
 
     <h2>Réservations en cours</h2>
 
-    <ul>
+    <table>
+
+        <tr>
+            <th>Client</th>
+            <th>Bateau</th>
+            <th>Catway</th>
+        </tr>
 
         <% reservations.forEach(reservation=> { %>
 
-            <li>
-                <%= reservation.clientName %>
-            </li>
+            <tr>
+                <td>
+                    <%= reservation.clientName %>
+                </td>
+                <td>
+                    <%= reservation.boatName %>
+                </td>
+                <td>
+                    <%= reservation.catwayNumber %>
+                </td>
+            </tr>
 
             <% }) %>
 
-    </ul>
+    </table>
 
 </body>
 

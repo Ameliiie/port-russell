@@ -109,6 +109,18 @@ router.delete("/:id", async (req, res) => {
 
 });
 
+router.get("/view/details/:id", async (req, res) => {
+
+    const catway = await Catway.findById(
+        req.params.id
+    );
+
+    res.render("catways/details", {
+        catway
+    });
+
+});
+
 router.get("/view/list", async (req, res) => {
 
     const catways = await Catway.find();
@@ -116,6 +128,61 @@ router.get("/view/list", async (req, res) => {
     res.render("catways/index", {
         catways
     });
+
+});
+
+router.get("/view/create", (req, res) => {
+
+    res.render("catways/create");
+
+});
+
+router.post("/view/create", async (req, res) => {
+
+    const catway = new Catway({
+        catwayNumber: req.body.catwayNumber,
+        catwayType: req.body.catwayType,
+        catwayState: req.body.catwayState
+    });
+
+    await catway.save();
+
+    res.redirect("/catways/view/list");
+
+});
+
+router.get("/view/edit/:id", async (req, res) => {
+
+    const catway = await Catway.findById(
+        req.params.id
+    );
+
+    res.render("catways/edit", {
+        catway
+    });
+
+});
+
+router.post("/view/edit/:id", async (req, res) => {
+
+    await Catway.findByIdAndUpdate(
+        req.params.id,
+        {
+            catwayState: req.body.catwayState
+        }
+    );
+
+    res.redirect("/catways/view/list");
+
+});
+
+router.post("/view/delete/:id", async (req, res) => {
+
+    await Catway.findByIdAndDelete(
+        req.params.id
+    );
+
+    res.redirect("/catways/view/list");
 
 });
 

@@ -52,6 +52,18 @@ router.delete("/:email", async (req, res) => {
 
 });
 
+router.get("/view/details/:email", async (req, res) => {
+
+    const user = await User.findOne({
+        email: req.params.email
+    });
+
+    res.render("users/details", {
+        user
+    });
+
+});
+
 router.get("/view/list", async (req, res) => {
 
     const users = await User.find();
@@ -61,5 +73,63 @@ router.get("/view/list", async (req, res) => {
     });
 
 });
+
+router.get("/view/create", (req, res) => {
+
+    res.render("users/create");
+
+});
+
+router.post("/view/create", async (req, res) => {
+
+    const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+    });
+
+    await user.save();
+
+    res.redirect("/users/view/list");
+
+});
+
+router.get("/view/edit/:email", async (req, res) => {
+
+    const user = await User.findOne({
+        email: req.params.email
+    });
+
+    res.render("users/edit", {
+        user
+    });
+
+});
+
+router.post("/view/edit/:email", async (req, res) => {
+
+    await User.findOneAndUpdate(
+        {
+            email: req.params.email
+        },
+        {
+            username: req.body.username
+        }
+    );
+
+    res.redirect("/users/view/list");
+
+});
+
+router.post("/view/delete/:email", async (req, res) => {
+
+    await User.findOneAndDelete({
+        email: req.params.email
+    });
+
+    res.redirect("/users/view/list");
+
+});
+
 
 module.exports = router;
