@@ -42,7 +42,9 @@ app.post("/login", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Serveur running on port 3000")
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Serveur running on port ${PORT}`);
+});
 
