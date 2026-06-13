@@ -1,20 +1,19 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const catwayRoutes = require("./routes/catways");
-const reservationRoutes =require ("./routes/reservations")
+const reservationRoutes = require("./routes/reservations");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const Reservation = require("./models/Reservation");
 
-
 const app = express();
 
-connectDB(); 
+connectDB();
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.use (express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -49,7 +48,8 @@ app.get("/logout", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Serveur running on port 3000")
-})
+const PORT = process.env.PORT || 3000;
 
+app.listen(PORT, () => {
+    console.log(`Serveur running on port ${PORT}`);
+});
