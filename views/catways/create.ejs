@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Créer Catway</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Créer un Catway</h1>
+
+    <a href="/catways/view/list">
+        Retour à la liste
+    </a>
+
+    <hr>
+
+    <form action="/catways/view/create" method="POST">
+
+        <p>
+            Numéro :
+            <input
+                type="number"
+                name="catwayNumber"
+                required>
+        </p>
+
+        <p>
+            Type :
+            <select name="catwayType">
+                <option value="short">short</option>
+                <option value="long">long</option>
+            </select>
+        </p>
+
+        <p>
+            Etat :
+            <input
+                type="text"
+                name="catwayState"
+                required>
+        </p>
+
+        <button type="submit">
+            Créer
+        </button>
+
+    </form>
+
+</body>
+
+</html>

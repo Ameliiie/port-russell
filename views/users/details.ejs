@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Détail Utilisateur</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Détail Utilisateur</h1>
+
+    <a href="/users/view/list">
+        Retour à la liste
+    </a>
+
+    <hr>
+
+    <p>
+        <strong>Nom :</strong>
+        <%= user.username %>
+    </p>
+
+    <p>
+        <strong>Email :</strong>
+        <%= user.email %>
+    </p>
+
+    <a href="/users/view/edit/<%= user.email %>">Modifier</a>
+
+    <form action="/users/view/delete/<%= user.email %>" method="POST">
+
+        <button type="submit"> Supprimer</button>
+
+    </form>
+</body>
+
+</html>

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Réservations</title>
 </head>
 
@@ -11,18 +12,27 @@
     <h1>Liste des Réservations</h1>
 
     <a href="/dashboard">Retour Dashboard</a>
+    <br><br>
 
+    <a href="/reservations/view/create"> Ajouter une Réservation</a>
     <hr>
 
     <ul>
 
-        <% reservations.forEach(reservation => { %>
+        <% reservations.forEach(reservation=> { %>
 
             <li>
-                <%= reservation.clientName %>
-            </li>
 
-        <% }) %>
+                <%= reservation.clientName %>
+
+                    -
+
+                    <%= reservation.boatName %>
+
+                        <a href="/reservations/view/details/<%= reservation._id %>"> Voir </a>
+
+            </li>
+            <% }) %>
 
     </ul>
 

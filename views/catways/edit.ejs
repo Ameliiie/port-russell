@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Catway</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Modifier Catway</h1>
+    <a href="/catways/view/list"> Retour à la liste </a>
+
+    <hr>
+
+    <form action="/catways/view/edit/<%= catway._id %>" method="POST">
+
+        <p>
+            Numéro :
+            <%= catway.catwayNumber %>
+        </p>
+
+        <p>
+            Type :
+            <%= catway.catwayType %>
+        </p>
+
+        <p> Etat : <input type="text" name="catwayState" value="<%= catway.catwayState %>" required> </p>
+
+        <button type="submit"> Modifier</button>
+
+    </form>
+
+</body>
+
+</html>

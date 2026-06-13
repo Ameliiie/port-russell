@@ -64,7 +64,7 @@ Ajouter un utilisateur
 POST /users
 
 Modifier un utilisateur
-PUT /users/:id
+PUT /users/:email
 
 Supprimer un utilisateur
-DELETE /users/:id
+DELETE /users/:email
